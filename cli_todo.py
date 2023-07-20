@@ -1,11 +1,11 @@
 import functions
-
 import time
 
-now = time.strftime("%b %d, %Y %H:%M:%S")
-print(f"It is: {now}")
+
 while True:
     #----------------- MAIN MENU -------------------------------
+    now = time.strftime("%b %d, %Y %H:%M:%S")
+    print(f"It is: {now}")
     user_action = input("Type add, show, edit, complete or exit:")
     user_action = user_action.strip()
     #----------------- ACTIONS ----------------------------------
@@ -35,11 +35,11 @@ while True:
     #---------- EDITING TODOS ------------
     elif user_action.startswith("edit"):
 
-        #--- OVERWRITING EXISTING VALUE ---
+
         number = int(user_action[5:])
         number -= 1
         new_todo = input("Enter new todo: ")
-        # --- GETTING VALUES ---
+
         todos = functions.get_todos()
 
         todos[number] = new_todo + "\n"
@@ -53,6 +53,7 @@ while True:
         todos.pop(number - 1)
 
         functions.write_todos(todos)
+    #----------- CLOSING THE PROGRAM ----------------
     elif user_action == "exit":
         break
     else:
